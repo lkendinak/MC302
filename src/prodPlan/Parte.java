@@ -6,7 +6,16 @@ public class Parte {
 
 	private String nome;
 
+	private String desc;
+
 	private float valor;
+
+	public Parte(int code, String name, String descrip, float value) {
+		this.setCod(code);
+		this.setNome(name);
+		this.setDesc(descrip);
+		this.setValor(value);
+	}
 
 	public int getCod() {
 		return cod;
@@ -32,10 +41,24 @@ public class Parte {
 		this.valor = valor;
 	}
 
-	public Parte(int code, String name, float value) {
-		this.setCod(code);
-		this.setNome(name);
-		this.setValor(value);
+	public float calculaValor() {
+		return this.getValor();
+	}
+
+	public String toString() {
+		String parteToString = "codigo:" + this.getCod() + " nome:"
+				+ this.getNome() + " descricao:" + this.getDesc() + " valor:"
+				+ this.getValor();
+
+		return parteToString;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
 }

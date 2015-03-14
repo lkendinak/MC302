@@ -1,5 +1,10 @@
 package prodPlan;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class TesteLab2_1 {
 	
 	/**
@@ -33,7 +38,7 @@ public class TesteLab2_1 {
 	
 	/**
 	 * Cria um vetor de objetos Item a ser usado nos testes
-	 * @param partes vetor de objetos Parte a partir do qual serao criados os objetos Item que formarão o vetor
+	 * @param partes vetor de objetos Parte a partir do qual serao criados os objetos Item que formarï¿½o o vetor
 	 * @return vetor de objetos Item 
 	 */
 	static Item[] criaItens(Parte[] partes){
@@ -65,12 +70,22 @@ public class TesteLab2_1 {
 	/**
 	 * Metodo principal que dispara os testes.
 	 * @param args o de sempre.
+	 * @throws IOException 
 	 */
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
 		Parte[] partes = criaPartes();
 		Item[] itens = criaItens(partes);
 		listaPartes("*** Partes utilizadas na producao ****",partes);
 		listaItens("*** Itens solicitados ***",itens);
+		
+		String teste = readFile("saidaLab2_1.txt",  Charset.defaultCharset());
 	}
+	
+	static String readFile(String path, Charset encoding) 
+			  throws IOException 
+			{
+			  byte[] encoded = Files.readAllBytes(Paths.get(path));
+			  return new String(encoded, encoding);
+			}
 
 }
