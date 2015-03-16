@@ -6,6 +6,7 @@ public class Motor extends Parte {
 	private float corrente;
 	private int rpm;
 
+	// Construtor
 	public Motor(int code, String name, String descrip, float value, float pot,
 			float current, int rotation) {
 		super(code, name, descrip, value);
@@ -15,6 +16,7 @@ public class Motor extends Parte {
 
 	}
 
+	// Gettlers and Setters
 	public float getPotencia() {
 		return potencia;
 	}
@@ -39,6 +41,7 @@ public class Motor extends Parte {
 		this.rpm = rpm;
 	}
 
+	// Método que retorna a string no formato pedido concatenado com o método do pai
 	public String toString() {
 		String motorTostring = super.toString() + " potencia:"
 				+ this.getPotencia() + " corrente:" + this.getCorrente()
