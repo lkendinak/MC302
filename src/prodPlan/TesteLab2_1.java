@@ -79,6 +79,11 @@ public class TesteLab2_1 {
 		listaItens("*** Itens solicitados ***",itens);
 		
 		String teste = readFile("saidaLab2_1.txt",  Charset.defaultCharset());
+		
+		String ute = readFile("entrada.txt",  Charset.defaultCharset());
+		
+		if (ute.equals(teste))	
+			System.out.println("Deu certo");
 	}
 	
 	static String readFile(String path, Charset encoding) 

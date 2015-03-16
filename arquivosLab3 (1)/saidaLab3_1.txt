@@ -1,0 +1,47 @@
+	 CODIGO	    QUANTIDADE 	VALOR  		 NOME/DESCRICAO
+	1021			      		base fixa bf1/base fixa de uso geral
+	..322			    		..haste h2/haste de uso geral 2
+	..232			    		..parafuso p2/parafuso de fixacao do motor
+	..511			    		..placa pk1/placa principal
+	..233			    		..parafuso p3/parafuso de fixacao do ventilador
+	..231			    		..parafuso p1/parafuso de fixacao do cabecote
+	..321			    		..haste h1/haste de uso geral 1
+	1022			      		base giratoria bgx/base giratoria de uso geral
+	..401			    		..eixo e1/eixo basico 1
+	..511			    		..placa pk1/placa principal
+	..112			    		..motor m112/motor de avanco do cabecote
+	..232			    		..parafuso p2/parafuso de fixacao do motor
+	..321			    		..haste h1/haste de uso geral 1
+	..512			    		..placa pk2/placa auxiliar
+	..231			    		..parafuso p1/parafuso de fixacao do cabecote
+	2043			      		plataforma p1/plataforma principal
+	..112			    		..motor m112/motor de avanco do cabecote
+	..231			    		..parafuso p1/parafuso de fixacao do cabecote
+	..1021			    		..base fixa bf1/base fixa de uso geral
+	....322			  		....haste h2/haste de uso geral 2
+	....232			  		....parafuso p2/parafuso de fixacao do motor
+	....511			  		....placa pk1/placa principal
+	....233			  		....parafuso p3/parafuso de fixacao do ventilador
+	....231			  		....parafuso p1/parafuso de fixacao do cabecote
+	....321			  		....haste h1/haste de uso geral 1
+	..1022			    		..base giratoria bgx/base giratoria de uso geral
+	....401			  		....eixo e1/eixo basico 1
+	....511			  		....placa pk1/placa principal
+	....112			  		....motor m112/motor de avanco do cabecote
+	....232			  		....parafuso p2/parafuso de fixacao do motor
+	....321			  		....haste h1/haste de uso geral 1
+	....512			  		....placa pk2/placa auxiliar
+	....231			  		....parafuso p1/parafuso de fixacao do cabecote
+	..401			    		..eixo e1/eixo basico 1
+	..402			    		..eixo e2/eixo basico 2
+	..232			    		..parafuso p2/parafuso de fixacao do motor
+	..512			    		..placa pk2/placa auxiliar
+	..321			    		..haste h1/haste de uso geral 1
+	1023			      		kit de reposicao k1/kit de reposicao da plataforma p1
+	..401			    		..eixo e1/eixo basico 1
+	..321			    		..haste h1/haste de uso geral 1
+	..402			    		..eixo e2/eixo basico 2
+	..231			    		..parafuso p1/parafuso de fixacao do cabecote
+	..512			    		..placa pk2/placa auxiliar
+	..232			    		..parafuso p2/parafuso de fixacao do motor
+Valor Total:1015.0

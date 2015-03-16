@@ -10,6 +10,7 @@ public class Parte {
 
 	private float valor;
 
+	// Construtor
 	public Parte(int code, String name, String descrip, float value) {
 		this.setCod(code);
 		this.setNome(name);
@@ -17,6 +18,7 @@ public class Parte {
 		this.setValor(value);
 	}
 
+	// Gettlers and Setters
 	public int getCod() {
 		return cod;
 	}
@@ -45,20 +47,21 @@ public class Parte {
 		return this.getValor();
 	}
 
-	public String toString() {
-		String parteToString = "codigo:" + this.getCod() + " nome:"
-				+ this.getNome() + " descricao:" + this.getDesc() + " valor:"
-				+ this.getValor();
-
-		return parteToString;
-	}
-
 	public String getDesc() {
 		return desc;
 	}
 
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+
+	// Método que retorna a string no formato pedido
+	public String toString() {
+		String parteToString = "codigo:" + this.getCod() + " nome:"
+				+ this.getNome() + " descricao:" + this.getDesc() + " valor:"
+				+ this.getValor();
+
+		return parteToString;
 	}
 
 }

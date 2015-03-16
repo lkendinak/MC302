@@ -6,11 +6,13 @@ public class Item {
 
 	private int quantidade;
 
+	// Construtor de item
 	public Item(Parte parte2, int i) {
 		this.setParte(parte2);
 		this.setQuantidade(i);
 	}
 
+	// Gettlers and Setters
 	public Parte getParte() {
 		return parte;
 	}
@@ -27,19 +29,19 @@ public class Item {
 		this.quantidade = quantidade;
 	}
 
+	// Método que retorna o valor total do item de acordo com a quantidade de
+	// partes
 	public float calculaValor() {
 		return (this.getParte().getValor() * this.quantidade);
 	}
 
+	// Método que retorna a string no formato pedido
 	public String toString() {
 
-		// String itemToString = StringUtils.replaceEach(this.parte.toString(),
-		// new String[]{"codigo", "valor"},
-		// new String[]{"cod", "valor unitario"});
-
-		String itemToString = this.parte.toString().replace("codigo", "cod");
-		itemToString = itemToString.replace("valor", "valor unitário")
-				+ " valor:" + this.calculaValor();
+		String itemToString = "cod:" + this.getParte().getCod() + " nome:"
+				+ this.getParte().getNome() + " quantidade:"
+				+ this.getQuantidade() + " valor unitario:"
+				+ this.getParte().getValor() + " valor:" + this.calculaValor();
 		return itemToString;
 
 	}
