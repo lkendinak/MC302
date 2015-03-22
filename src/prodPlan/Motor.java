@@ -50,5 +50,10 @@ public class Motor extends Parte {
 		return motorTostring;
 
 	}
+	
+	@Override
+	public Object accept(ProdPlanVisitor visitor) {
+		return visitor.visit(this);
+	}
 
 }

@@ -1,14 +1,14 @@
 package prodPlan;
 
-public class Parte {
+public class Parte implements Visitable {
 
-	private int cod;
+	int cod;
 
-	private String nome;
+	String nome;
 
-	private String desc;
+	String descricao;
 
-	private float valor;
+	float valor;
 
 	// Construtor
 	public Parte(int code, String name, String descrip, float value) {
@@ -48,11 +48,11 @@ public class Parte {
 	}
 
 	public String getDesc() {
-		return desc;
+		return descricao;
 	}
 
 	public void setDesc(String desc) {
-		this.desc = desc;
+		this.descricao = desc;
 	}
 
 	// Método que retorna a string no formato pedido
@@ -62,6 +62,11 @@ public class Parte {
 				+ this.getValor();
 
 		return parteToString;
+	}
+
+	@Override
+	public Object accept(ProdPlanVisitor visitor) {
+		return visitor.visit((ParteEspecifica)this);
 	}
 
 }

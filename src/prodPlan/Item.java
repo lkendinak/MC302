@@ -1,10 +1,10 @@
 package prodPlan;
 
-public class Item {
+public class Item implements Visitable, Comparable<Item>{
 
-	private Parte parte;
+	Parte parte;
 
-	private int quantidade;
+	int quantidade;
 
 	// Construtor de item
 	public Item(Parte parte2, int i) {
@@ -32,7 +32,7 @@ public class Item {
 	// Método que retorna o valor total do item de acordo com a quantidade de
 	// partes
 	public float calculaValor() {
-		return (this.getParte().getValor() * this.quantidade);
+		return (this.getParte().calculaValor() * this.getQuantidade());
 	}
 
 	// Método que retorna a string no formato pedido
@@ -44,6 +44,24 @@ public class Item {
 				+ this.getParte().getValor() + " valor:" + this.calculaValor();
 		return itemToString;
 
+	}
+
+	@Override
+	public int compareTo(Item i) {
+		   int qtde=i.getQuantidade();
+	        /* For Ascending order*/
+		   if (this.getQuantidade() > qtde)	{
+			   return 1;
+		   } else if (this.getQuantidade() < qtde){
+			   return -1;
+		   } else	{
+			   return 0;
+		   }
+	}
+
+	@Override
+	public Object accept(ProdPlanVisitor visitor) {
+		return visitor.visit(this);
 	}
 
 }

@@ -36,4 +36,9 @@ public class Parafuso extends Parte {
 		
 		return parafusoToString;
 	}
+	
+	@Override
+	public Object accept(ProdPlanVisitor visitor) {
+		return visitor.visit(this);
+	}
 }
