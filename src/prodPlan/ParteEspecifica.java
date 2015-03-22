@@ -15,43 +15,47 @@ public class ParteEspecifica extends Parte {
 
 	public void agregaCaracteristica(String nome, String conteudo)
 			throws Exception {
-		// TODO este método associa uma ‘caracteristica específica’ ao objeto
-		// ParteEspecífica, na forma
-		// (valor,conteúdo). Caso um dos parâmetros seja igual a null ou caso o
-		// objeto já tenha uma
-		// característica do mesmo nome, este método deve gerar uma exceção.
+		// Verifica se o HashMap já foi iniciado, caso negativo instancia o
+		// hashMap
 		if (null == caracateristicas) {
 			caracateristicas = new HashMap<String, String>();
 		}
+		// Verifica se o nome ou conteudo são nulos, caso positivo retorna uma
+		// exceçao
 		if (nome == null || conteudo == null) {
 			throw new Exception("Valor nulo");
 		}
+		// Verifica se já existe uma característica com aquele nome, caso
+		// positivo joga uma exceção
 		if (caracateristicas.containsKey(nome)) {
 			throw new Exception("Já existe uma caracteristica com esse nome");
 		}
+
+		// Adiciona o nome/conteudo no hashMap
 		caracateristicas.put(nome, conteudo);
 	}
 
 	public String caracteristica(String nome) {
-		// este método retorna o ‘conteúdo’ associado a uma característica,
-		// definida pelo seu nome.
-		// Caso o objeto não tenha a característica desejada, o método deve
-		// retornar null.
+		// Verifica se existe uma caracteristica com o nome fornecido, caso
+		// positivo retorna o conteudo associado ao nome
 		if (caracateristicas.containsKey(nome)) {
 			return caracateristicas.get(nome);
 		}
+
+		// Caso não exista a o nome no Map de caracteristicas, retorna nulo
 		return null;
 	}
 
 	public List<Caracteristica> listaDeCaracteristicas() {
 		List<Caracteristica> list = new ArrayList<Caracteristica>();
+		// Itera no HashMap, adicionando numa lista de Caracteristica
 		for (Map.Entry<String, String> entry : caracateristicas.entrySet()) {
 			list.add(new Caracteristica(entry.getKey(), entry.getValue()));
 		}
 
 		return list;
 	}
-	
+
 	@Override
 	public Object accept(ProdPlanVisitor visitor) {
 		return visitor.visit(this);

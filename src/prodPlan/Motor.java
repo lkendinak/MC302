@@ -41,7 +41,8 @@ public class Motor extends Parte {
 		this.rpm = rpm;
 	}
 
-	// Método que retorna a string no formato pedido concatenado com o método do pai
+	// Método que retorna a string no formato pedido concatenado com o método do
+	// pai
 	public String toString() {
 		String motorTostring = super.toString() + " potencia:"
 				+ this.getPotencia() + " corrente:" + this.getCorrente()
@@ -50,7 +51,7 @@ public class Motor extends Parte {
 		return motorTostring;
 
 	}
-	
+
 	@Override
 	public Object accept(ProdPlanVisitor visitor) {
 		return visitor.visit(this);

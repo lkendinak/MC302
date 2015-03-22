@@ -66,7 +66,7 @@ public class Parte implements Visitable {
 
 	@Override
 	public Object accept(ProdPlanVisitor visitor) {
-		return visitor.visit((ParteEspecifica)this);
+		return visitor.visit((ParteEspecifica) this);
 	}
 
 }

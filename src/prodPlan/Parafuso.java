@@ -30,13 +30,15 @@ public class Parafuso extends Parte {
 		this.diametro = diametro;
 	}
 
-	// Método que retorna a string no formato pedido concatenado com o método do pai
-	public String toString()	{
-		String parafusoToString = super.toString() + " comprimento:"+this.getComprimento()+" diametro:"+this.getDiametro();
-		
+	// Método que retorna a string no formato pedido concatenado com o método do
+	// pai
+	public String toString() {
+		String parafusoToString = super.toString() + " comprimento:"
+				+ this.getComprimento() + " diametro:" + this.getDiametro();
+
 		return parafusoToString;
 	}
-	
+
 	@Override
 	public Object accept(ProdPlanVisitor visitor) {
 		return visitor.visit(this);

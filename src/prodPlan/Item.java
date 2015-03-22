@@ -1,6 +1,6 @@
 package prodPlan;
 
-public class Item implements Visitable, Comparable<Item>{
+public class Item implements Visitable, Comparable<Item> {
 
 	Parte parte;
 
@@ -46,17 +46,17 @@ public class Item implements Visitable, Comparable<Item>{
 
 	}
 
+	// Método override do compareTo, ascendente de acordo com as quantidades
 	@Override
 	public int compareTo(Item i) {
-		   int qtde=i.getQuantidade();
-	        /* For Ascending order*/
-		   if (this.getQuantidade() > qtde)	{
-			   return 1;
-		   } else if (this.getQuantidade() < qtde){
-			   return -1;
-		   } else	{
-			   return 0;
-		   }
+		int qtde = i.getQuantidade();
+		if (this.getQuantidade() > qtde) {
+			return 1;
+		} else if (this.getQuantidade() < qtde) {
+			return -1;
+		} else {
+			return 0;
+		}
 	}
 
 	@Override

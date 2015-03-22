@@ -15,44 +15,52 @@ public class ParteComposta extends Parte {
 	}
 
 	public void agregaItem(Parte parte, int quantidade) throws Exception {
-//		este método deve agregar um item ao objeto ParteComposta e tem como parâmetros a
-//		referência a um objeto Parte e a quantidade que essa parte será usada na ParteComposta.
-//		Este método deve gerar uma exceção se o objeto Parte referenciado pelo objeto Item já
-//		estiver presente ou for nula e também no caso de a quantidade ser nula. 
-		if ( null == items)	{
+		// Caso seja a primeira vez, instancia o conjunto items
+		if (null == items) {
 			items = new HashSet<Item>();
 		}
-		if (null == parte || items.contains(parte))	{
+		// Caso a parte seja nula, ou já esteja no conjunto, joga uma exceção
+		if (null == parte || items.contains(parte)) {
 			throw new Exception("Essa Parte já existe, ou é nula");
 		}
+
+		// Adiciona o novo item no conjunto
 		items.add(new Item(parte, quantidade));
 	}
 
 	List<Item> listaDeItens() {
 		List<Item> list = new ArrayList<Item>();
-		for (Item i : items)	{
+		// Itera no conjunto de items adicionando numa lista
+		for (Item i : items) {
 			list.add(i);
 		}
+		// Usa o método sort() para ordenar a lista de acordo com o compareTo
+		// implementado na classe Item
 		Collections.sort(list);
 		return list;
 	}
 
+	// Calcula o valor total da Parte Composta
 	public float calculaValor() {
+		// inicialmente pega o valor principal do pai
 		float valor = super.calculaValor();
-		for (Item i : items)	{
-			if(i.getParte() instanceof ParteComposta)	{
+
+		// Itera pelo conjunto de items
+		for (Item i : items) {
+			// Verifica se a parte do item é uma parte composta
+			// caso seja, chama o método calcula valor novamente
+			// se não retorna o valor da parte multiplicada pela quantidade
+			if (i.getParte() instanceof ParteComposta) {
 				valor = valor + i.calculaValor();
-			} else	{
-				valor = valor + (i.getParte().getValor()*i.getQuantidade());
+			} else {
+				valor = valor + (i.getParte().getValor() * i.getQuantidade());
 			}
-			
 		}
-		
 		return valor;
 	}
-	
-	public String toString()	{
-		
+
+	// Usa o método pai para retornar em formato String
+	public String toString() {
 		return super.toString();
 	}
 
