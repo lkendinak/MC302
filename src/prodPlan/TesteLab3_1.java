@@ -13,9 +13,9 @@ public class TesteLab3_1 {
 		s2 += "\t";
 		Collections.sort(lista);
 		for(Item item:lista){
-			System.out.println(s1 + item.parte.cod+"\t\t"+item.quantidade+"\t"+item.calculaValor()+ s2+s1+item.parte.nome+"/"+item.parte.descricao);
-			if(item.parte instanceof ParteComposta) 
-				imprimeLista(((ParteComposta)item.parte).listaDeItens(),nivel+1);
+			System.out.println(s1 + item.getParte().getCod()+"\t\t"+item.getQuantidade()+"\t"+item.calculaValor()+ s2+s1+item.getParte().getNome()+"/"+item.getParte().getDescricao());
+			if(item.getParte() instanceof ParteComposta) 
+				imprimeLista(((ParteComposta)item.getParte()).listaDeItens(),nivel+1);
 		}
 	}
 	

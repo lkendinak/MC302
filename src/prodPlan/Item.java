@@ -2,9 +2,9 @@ package prodPlan;
 
 public class Item implements Visitable, Comparable<Item> {
 
-	Parte parte;
+	private Parte parte;
 
-	int quantidade;
+	private int quantidade;
 
 	// Construtor de item
 	public Item(Parte parte2, int i) {
