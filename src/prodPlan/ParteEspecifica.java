@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class ParteEspecifica extends Parte {
 
-	Map<String, String> caracateristicas;
+	private Map<String, String> caracateristicas;
 
 	public ParteEspecifica(int code, String name, String descrip, float value) {
 		super(code, name, descrip, value);
@@ -18,7 +18,7 @@ public class ParteEspecifica extends Parte {
 		// Verifica se o HashMap já foi iniciado, caso negativo instancia o
 		// hashMap
 		if (null == caracateristicas) {
-			caracateristicas = new HashMap<String, String>();
+			this.setCaracateristicas(new HashMap<String, String>());
 		}
 		// Verifica se o nome ou conteudo são nulos, caso positivo retorna uma
 		// exceçao
@@ -27,19 +27,19 @@ public class ParteEspecifica extends Parte {
 		}
 		// Verifica se já existe uma característica com aquele nome, caso
 		// positivo joga uma exceção
-		if (caracateristicas.containsKey(nome)) {
+		if (this.getCaracateristicas().containsKey(nome)) {
 			throw new Exception("Já existe uma caracteristica com esse nome");
 		}
 
 		// Adiciona o nome/conteudo no hashMap
-		caracateristicas.put(nome, conteudo);
+		this.getCaracateristicas().put(nome, conteudo);
 	}
 
 	public String caracteristica(String nome) {
 		// Verifica se existe uma caracteristica com o nome fornecido, caso
 		// positivo retorna o conteudo associado ao nome
-		if (caracateristicas.containsKey(nome)) {
-			return caracateristicas.get(nome);
+		if (this.getCaracateristicas().containsKey(nome)) {
+			return this.getCaracateristicas().get(nome);
 		}
 
 		// Caso não exista a o nome no Map de caracteristicas, retorna nulo
@@ -49,7 +49,7 @@ public class ParteEspecifica extends Parte {
 	public List<Caracteristica> listaDeCaracteristicas() {
 		List<Caracteristica> list = new ArrayList<Caracteristica>();
 		// Itera no HashMap, adicionando numa lista de Caracteristica
-		for (Map.Entry<String, String> entry : caracateristicas.entrySet()) {
+		for (Map.Entry<String, String> entry : this.getCaracateristicas().entrySet()) {
 			list.add(new Caracteristica(entry.getKey(), entry.getValue()));
 		}
 
@@ -59,6 +59,14 @@ public class ParteEspecifica extends Parte {
 	@Override
 	public Object accept(ProdPlanVisitor visitor) {
 		return visitor.visit(this);
+	}
+
+	public Map<String, String> getCaracateristicas() {
+		return caracateristicas;
+	}
+
+	public void setCaracateristicas(Map<String, String> caracateristicas) {
+		this.caracateristicas = caracateristicas;
 	}
 
 }

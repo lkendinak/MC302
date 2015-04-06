@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class ParteComposta extends Parte {
 
-	Set<Item> items;
+	List<Item> itens;
 
 	public ParteComposta(int code, String name, String descrip, float value) {
 		super(code, name, descrip, value);
@@ -16,22 +16,22 @@ public class ParteComposta extends Parte {
 
 	public void agregaItem(Parte parte, int quantidade) throws Exception {
 		// Caso seja a primeira vez, instancia o conjunto items
-		if (null == items) {
-			items = new HashSet<Item>();
+		if (null == this.getItens()) {
+			this.setItens(new ArrayList<Item>());
 		}
 		// Caso a parte seja nula, ou já esteja no conjunto, joga uma exceção
-		if (null == parte || items.contains(parte)) {
+		if (null == parte || this.getItens().contains(parte)) {
 			throw new Exception("Essa Parte já existe, ou é nula");
 		}
 
 		// Adiciona o novo item no conjunto
-		items.add(new Item(parte, quantidade));
+		this.getItens().add(new Item(parte, quantidade));
 	}
 
 	List<Item> listaDeItens() {
 		List<Item> list = new ArrayList<Item>();
 		// Itera no conjunto de items adicionando numa lista
-		for (Item i : items) {
+		for (Item i : this.getItens()) {
 			list.add(i);
 		}
 		// Usa o método sort() para ordenar a lista de acordo com o compareTo
@@ -46,7 +46,7 @@ public class ParteComposta extends Parte {
 		float valor = super.calculaValor();
 
 		// Itera pelo conjunto de items
-		for (Item i : items) {
+		for (Item i : this.getItens()) {
 			// Verifica se a parte do item é uma parte composta
 			// caso seja, chama o método calcula valor novamente
 			// se não retorna o valor da parte multiplicada pela quantidade
@@ -67,6 +67,16 @@ public class ParteComposta extends Parte {
 	@Override
 	public Object accept(ProdPlanVisitor visitor) {
 		return visitor.visit(this);
+	}
+
+	// método ParteComposta.getItens() deverá retornar o mesmo valor que o
+	// método ParteComposta.listaDeItens()
+	public List<Item> getItens() {
+		return this.listaDeItens();
+	}
+
+	public void setItens(List<Item> itens) {
+		this.itens = itens;
 	}
 
 }

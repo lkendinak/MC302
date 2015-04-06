@@ -2,13 +2,13 @@ package prodPlan;
 
 public class Parte implements Visitable {
 
-	int cod;
+	private int cod;
 
-	String nome;
+	private String nome;
 
-	String descricao;
+	private String descricao;
 
-	float valor;
+	private float valor;
 
 	// Construtor
 	public Parte(int code, String name, String descrip, float value) {
