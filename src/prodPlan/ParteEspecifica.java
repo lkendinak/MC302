@@ -18,7 +18,7 @@ public class ParteEspecifica extends Parte {
 		// Verifica se o HashMap já foi iniciado, caso negativo instancia o
 		// hashMap
 		if (null == caracateristicas) {
-			this.setCaracateristicas(new HashMap<String, String>());
+			this.caracateristicas = new HashMap<String, String>();
 		}
 		// Verifica se o nome ou conteudo são nulos, caso positivo retorna uma
 		// exceçao

@@ -2,9 +2,7 @@ package prodPlan;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ParteComposta extends Parte {
 
@@ -16,8 +14,8 @@ public class ParteComposta extends Parte {
 
 	public void agregaItem(Parte parte, int quantidade) throws Exception {
 		// Caso seja a primeira vez, instancia o conjunto items
-		if (null == this.getItens()) {
-			this.setItens(new ArrayList<Item>());
+		if (null == itens) {
+			this.itens = new ArrayList<Item>();
 		}
 		// Caso a parte seja nula, ou já esteja no conjunto, joga uma exceção
 		if (null == parte || this.getItens().contains(parte)) {
@@ -72,7 +70,8 @@ public class ParteComposta extends Parte {
 	// método ParteComposta.getItens() deverá retornar o mesmo valor que o
 	// método ParteComposta.listaDeItens()
 	public List<Item> getItens() {
-		return this.listaDeItens();
+		Collections.sort(itens);
+		return itens;
 	}
 
 	public void setItens(List<Item> itens) {
