@@ -14,8 +14,13 @@ public class Parte implements Visitable {
 	public Parte(int code, String name, String descrip, float value) {
 		this.setCod(code);
 		this.setNome(name);
-		this.setDesc(descrip);
+		this.setDescricao(descrip);
 		this.setValor(value);
+	}
+	
+	//Construtor apenas com o código
+	public Parte(int code) {
+	this.setCod(code);
 	}
 
 	// Gettlers and Setters
@@ -47,18 +52,18 @@ public class Parte implements Visitable {
 		return this.getValor();
 	}
 
-	public String getDesc() {
+	public String getDescricao() {
 		return descricao;
 	}
 
-	public void setDesc(String desc) {
+	public void setDescricao(String desc) {
 		this.descricao = desc;
 	}
 
 	// Método que retorna a string no formato pedido
 	public String toString() {
 		String parteToString = "codigo:" + this.getCod() + " nome:"
-				+ this.getNome() + " descricao:" + this.getDesc() + " valor:"
+				+ this.getNome() + " descricao:" + this.getDescricao() + " valor:"
 				+ this.getValor();
 
 		return parteToString;

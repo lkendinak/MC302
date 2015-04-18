@@ -11,6 +11,10 @@ public class ParteComposta extends Parte {
 	public ParteComposta(int code, String name, String descrip, float value) {
 		super(code, name, descrip, value);
 	}
+	//Construtor apenas com o código
+	public ParteComposta(int code)	{
+		super(code);
+	}
 
 	public void agregaItem(Parte parte, int quantidade) throws Exception {
 		// Caso seja a primeira vez, instancia o conjunto items

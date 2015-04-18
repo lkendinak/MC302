@@ -6,6 +6,9 @@ public class Item implements Visitable, Comparable<Item> {
 
 	private int quantidade;
 
+	// Construtor vazio de item
+	public Item() {
+	}
 	// Construtor de item
 	public Item(Parte parte2, int i) {
 		this.setParte(parte2);
@@ -32,7 +35,7 @@ public class Item implements Visitable, Comparable<Item> {
 	// Método que retorna o valor total do item de acordo com a quantidade de
 	// partes
 	public float calculaValor() {
-		return (this.getParte().calculaValor() * this.getQuantidade());
+		return (this.getParte().getValor() * this.getQuantidade());
 	}
 
 	// Método que retorna a string no formato pedido
